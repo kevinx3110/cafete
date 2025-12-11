@@ -1,0 +1,2001 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zapato Cafetería - Café artesanal y delicias horneadas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="recursos/imagenes/zapatofav.png" type="image/png">
+    <style>
+        @font-face {
+            font-family: 'Badhorse-Regular';
+            src: url('fonts/Badhorse-Regular.woff') format('woff'),
+                 url('fonts/Badhorse-Regular.otf') format('opentype'); /* Incluye ambos formatos */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --primary: #8d6b43; /* Cambia el color principal al nuevo color */
+            --secondary: #E3C9A5;
+            --accent: #D4A76A;
+            --light: #F5F5F0;
+            --dark: #3E2723;
+            --text: #5A4A42;
+            --pastel: #F8E9D5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif; /* Fuente secundaria para el contenido */
+            color: var(--text);
+            background-color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body.dark-mode {
+            background-color: #121212; /* Fondo oscuro */
+            color: #e0e0e0; /* Texto claro */
+        }
+
+        body.dark-mode a {
+            color: #bb86fc; /* Enlaces en modo oscuro */
+        }
+
+        body.dark-mode header {
+            background-color: #1f1f1f; /* Fondo del header */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        body.dark-mode .menu {
+            background-color: #1e1e1e; /* Fondo del menú */
+        }
+
+        body.dark-mode .menu-item {
+            background-color: #2a2a2a; /* Fondo de los elementos del menú */
+            color: #e0e0e0; /* Texto claro */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        body.dark-mode .menu-item img {
+            border-bottom: 2px solid #bb86fc; /* Borde de las imágenes */
+        }
+
+        body.dark-mode .item-info h3 {
+            color: #bb86fc; /* Títulos del menú */
+        }
+
+        body.dark-mode .item-price {
+            color: #ffb74d; /* Precio en modo oscuro */
+        }
+
+        body.dark-mode .new-carousel-wrapper {
+            background-color: #1e1e1e; /* Fondo del carrusel */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .new-carousel-item {
+            background-color: #2a2a2a; /* Fondo de los elementos del carrusel */
+            color: #e0e0e0; /* Texto claro */
+        }
+
+        body.dark-mode .new-carousel-item img {
+            border-bottom: 2px solid #bb86fc; /* Borde de las imágenes del carrusel */
+        }
+
+        body.dark-mode .new-carousel-info h3 {
+            color: #bb86fc; /* Títulos del carrusel */
+        }
+
+        body.dark-mode .new-carousel-info p {
+            color: #e0e0e0; /* Texto del carrusel */
+        }
+
+        body.dark-mode .new-carousel-btn {
+            background-color: #bb86fc; /* Botones del carrusel */
+            color: #121212; /* Color del ícono */
+        }
+
+        body.dark-mode .new-carousel-btn:hover {
+            background-color: #ffb74d; /* Hover de los botones del carrusel */
+        }
+
+        body.dark-mode .contact-info {
+            background-color: #2a2a2a; /* Fondo de la información de contacto */
+            color: #e0e0e0; /* Texto claro */
+        }
+
+        body.dark-mode .contact-info h3 {
+            color: #bb86fc; /* Títulos de contacto */
+        }
+
+        body.dark-mode .contact-info li h4 {
+            color: #ffb74d; /* Subtítulos de contacto */
+        }
+
+        body.dark-mode .contact-info li span {
+            color: #e0e0e0; /* Texto de contacto */
+        }
+
+        body.dark-mode .contact-form {
+            background-color: #2a2a2a; /* Fondo del formulario de contacto */
+            color: #e0e0e0; /* Texto claro */
+        }
+
+        body.dark-mode .contact-form input,
+        body.dark-mode .contact-form textarea {
+            background-color: #1e1e1e; /* Fondo de los campos */
+            color: #e0e0e0; /* Texto claro */
+            border: 1px solid #bb86fc; /* Borde de los campos */
+        }
+
+        body.dark-mode .contact-form input:focus,
+        body.dark-mode .contact-form textarea:focus {
+            border-color: #ffb74d; /* Borde al enfocar */
+            box-shadow: 0 0 5px rgba(255, 183, 77, 0.5);
+        }
+
+        body.dark-mode .btn {
+            background-color: #bb86fc; /* Botones */
+            color: #121212; /* Texto de los botones */
+        }
+
+        body.dark-mode .btn:hover {
+            background-color: #ffb74d; /* Hover de los botones */
+        }
+
+        body.dark-mode footer {
+            background-color: #1f1f1f; /* Fondo del footer */
+            color: #e0e0e0; /* Texto claro */
+        }
+
+        body.dark-mode .footer-links a {
+            color: #bb86fc; /* Enlaces del footer */
+        }
+
+        body.dark-mode .footer-links a:hover {
+            color: #ffb74d; /* Hover de los enlaces del footer */
+        }
+
+        h1, h2, h3, h4 {
+            align-items: center; /* Centra los elementos horizontalmente */
+        }
+
+        h2 {
+            font-size: 2.8rem;
+        }
+
+        h3 {
+            font-size: 2.4rem;
+        }
+
+        h4 {
+            font-size: 2rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 10px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem; /* Tamaño base del logo */
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            font-size: 1.5rem; /* Ajusta el tamaño del texto del logo */
+        }
+
+        .badhorse {
+            font-family: 'Badhorse-Regular', serif;
+            font-size: 4rem; /* Ajusta el tamaño según sea necesario */
+            font-weight: normal;
+            color: var(--primary); /* Aplica el color principal */
+            text-transform: none; /* Asegura que no se transforme el texto */
+        }
+
+        .cafeteria {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2rem; /* Tamaño del texto de "Cafetería" */
+            font-weight: normal; /* Sin negrilla */
+            color: black; /* Mantiene el color negro */
+            letter-spacing: 3px; /* Aumenta el espaciado entre letras */
+            text-transform: uppercase; /* Convierte el texto a mayúsculas */
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            font-family: 'Roboto', sans-serif; /* Fuente secundaria para el menú de navegación */
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a[href="#galeria"] {
+            font-weight: bold; /* Resalta el texto */
+            color: #4CAF50; /* Cambia el color del texto a verde */
+            border: 2px solid #4CAF50; /* Agrega un borde verde */
+            border-radius: 5px; /* Redondea las esquinas */
+            padding: 5px 10px; /* Agrega espacio interno */
+            transition: all 0.3s ease; /* Suaviza las transiciones */
+        }
+
+        .nav-links a[href="#galeria"]:hover {
+            background-color: #4CAF50; /* Cambia el fondo al pasar el mouse */
+            color: white; /* Cambia el color del texto */
+            transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .hero {
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem; /* Tamaño del texto */
+            text-align: center; /* Centra el texto horizontalmente */
+            margin: 40px 0; /* Agrega espacio vertical arriba y abajo */
+            color: var(--primary); /* Aplica el color principal */
+            line-height: 1.4; /* Mejora la legibilidad */
+        }
+
+        @media (max-width: 768px) {
+            .section-title h2 {
+                font-size: 2rem; /* Reduce el tamaño del texto en móviles */
+                margin: 30px 0; /* Ajusta el espacio vertical */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 1.8rem; /* Reduce aún más el tamaño del texto */
+                margin: 20px 0; /* Ajusta el espacio vertical */
+            }
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .about-text.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.2s;
+        }
+
+        .about-image.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Menu Section */
+        .menu {
+            background-color: var(--pastel);
+        }
+
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text);
+        }
+
+        .category-btn.active, .category-btn:hover {
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .menu-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .item-info {
+            padding: 20px;
+        }
+
+        .item-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .item-info p {
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .item-price {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        /* Gallery Section */
+        .new-carousel-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            padding: 40px; /* Aumenta el padding para agrandar el carrusel */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 100%; /* Asegura que el carrusel ocupe el ancho completo */
+            margin: 0 auto; /* Centra el carrusel */
+        }
+
+        .new-carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        /* Elementos del carrusel */
+        .new-carousel-item {
+            display: flex;
+            flex-direction: column; /* Apila la imagen y el texto verticalmente */
+            justify-content: flex-start; /* Asegura que los elementos no se solapen */
+            align-items: center; /* Centra horizontalmente los elementos */
+            flex: 0 0 100%; /* Cada elemento ocupa el 100% del carrusel */
+            text-align: center;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 0 auto; /* Centra el elemento horizontalmente */
+            height: 800px; /* Aumenta la altura del carrusel */
+        }
+
+        /* Imagen del carrusel */
+        .new-carousel-item img {
+            width: 100%;
+            height: auto;
+            max-height: 70%; /* Limita la altura máxima de la imagen */
+            object-fit: cover;
+            border-bottom: 2px solid #4caf50;
+        }
+
+        /* Información del carrusel */
+        .new-carousel-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra verticalmente el texto */
+            align-items: center; /* Centra horizontalmente el texto */
+            text-align: center; /* Asegura que el texto esté alineado al centro */
+            padding: 20px;
+            width: 100%; /* Asegura que ocupe todo el ancho disponible */
+            box-sizing: border-box; /* Incluye el padding en el ancho total */
+        }
+
+        /* Botones de navegación del carrusel */
+        .new-carousel-btn {
+            position: absolute;
+            top: 50%; /* Centra verticalmente */
+            transform: translateY(-50%);
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px; /* Tamaño del botón */
+            height: 50px; /* Tamaño del botón */
+            font-size: 1.5rem; /* Tamaño del ícono */
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 10; /* Asegura que las flechas estén por encima de otros elementos */
+            opacity: 1; /* Asegura que las flechas sean visibles */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .new-carousel-btn.prev-btn {
+            left: 20px; /* Posición a la izquierda */
+        }
+
+        .new-carousel-btn.next-btn {
+            right: 20px; /* Posición a la derecha */
+        }
+
+        .new-carousel-btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-50%) scale(1.1); /* Efecto de hover */
+        }
+
+        /* Ajustes generales del carrusel */
+        .new-carousel-wrapper {
+            max-width: 100%; /* Asegura que el carrusel ocupe todo el ancho disponible */
+            margin: 0 auto; /* Centra el carrusel */
+        }
+
+        /* Ajustes responsivos para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .new-carousel-wrapper {
+                padding: 20px; /* Reduce el padding para aprovechar más espacio */
+            }
+
+            .new-carousel-item {
+                height: 400px; /* Reduce la altura del carrusel */
+            }
+
+            .new-carousel-item img {
+                height: 150px; /* Reduce la altura de las imágenes */
+            }
+
+            .new-carousel-info {
+                padding: 10px; /* Reduce el padding del texto */
+            }
+
+            .new-carousel-info h3 {
+                font-size: 1.2rem; /* Reduce el tamaño del título */
+            }
+
+            .new-carousel-info p {
+                font-size: 0.9rem; /* Reduce el tamaño del texto */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .new-carousel-wrapper {
+                padding: 10px; /* Reduce aún más el padding en pantallas muy pequeñas */
+            }
+
+            .new-carousel-item {
+                height: 350px; /* Reduce aún más la altura del carrusel */
+            }
+
+            .new-carousel-item img {
+                height: 120px; /* Reduce aún más la altura de las imágenes */
+            }
+
+            .new-carousel-info h3 {
+                font-size: 1rem; /* Ajusta el tamaño del título */
+            }
+
+            .new-carousel-info p {
+                font-size: 0.8rem; /* Ajusta el tamaño del texto */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .new-carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .new-carousel-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Ajustes responsivos para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .new-carousel-item {
+                height: 500px; /* Ajusta la altura del carrusel en móviles */
+            }
+
+            .new-carousel-info h3 {
+                font-size: 1.2rem; /* Mantiene el tamaño del título en móviles */
+            }
+
+            .new-carousel-info p {
+                font-size: 0.9rem; /* Mantiene el tamaño del texto en móviles */
+                line-height: 1.4; /* Ajusta el espaciado entre líneas */
+                max-width: 40%; /* Asegura que el texto no se desborde */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .new-carousel-item {
+                height: 400px; /* Ajusta la altura del carrusel en pantallas muy pequeñas */
+            }
+
+            .new-carousel-info h3 {
+                font-size: 1rem; /* Mantiene el tamaño del título */
+            }
+
+            .new-carousel-info p {
+                font-size: 0.8rem; /* Mantiene el tamaño del texto */
+                line-height: 1.3; /* Ajusta el espaciado entre líneas */
+                max-width: 40%; /* Asegura que el texto ocupe todo el ancho disponible */
+            }
+        }
+
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            max-width: 45%;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-direction: column; /* Apila los elementos verticalmente */
+        }
+
+        .contact-info li h4 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .contact-info li i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-right: 10px;
+            margin-bottom: 5px;
+        }
+
+        .contact-info li span {
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        .social-links {
+            text-align: center; /* Centra el contenido */
+            margin-top: 30px;
+        }
+
+        .social-links h4 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 15px; /* Espacio entre el texto y los íconos */
+        }
+
+        .social-links .icons {
+            display: flex; /* Organiza los íconos en una fila */
+            justify-content: center; /* Centra los íconos horizontalmente */
+            gap: 20px; /* Espacio entre los íconos */
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px; /* Tamaño del botón */
+            height: 60px; /* Tamaño del botón */
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.5rem; /* Tamaño del ícono */
+            transition: all 0.3s ease;
+            text-align: center; /* Centra el contenido dentro del botón */
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            max-width: 45%;
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form .form-group label {
+            display: block;
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .contact-form .form-group input,
+        .contact-form .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--accent);
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form .form-group input:focus,
+        .contact-form .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 5px rgba(141, 107, 67, 0.5);
+        }
+
+        .contact-form .form-group textarea {
+            resize: none;
+            height: 150px;
+        }
+
+        .contact-form button {
+            padding: 15px 40px; /* Agranda el botón */
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem; /* Aumenta el tamaño del texto */
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .contact-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-info, .contact-form {
+                max-width: 100%;
+            }
+        }
+
+        /* Map */
+        .map {
+            height: 400px;
+            margin-top: 60px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        #mapa .map {
+            height: 400px;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        #mapa iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-links a[href="#galeria"] {
+            font-weight: bold; /* Resalta el texto */
+            color: #4CAF50; /* Cambia el color del texto a verde */
+            border: 2px solid #4CAF50; /* Agrega un borde verde */
+            border-radius: 5px; /* Redondea las esquinas */
+            padding: 5px 10px; /* Agrega espacio interno */
+            transition: all 0.3s ease; /* Suaviza las transiciones */
+            display: inline-block; /* Asegura que el enlace se comporte como un bloque en línea */
+        }
+
+        .footer-links a[href="#galeria"]:hover {
+            background-color: #4CAF50; /* Cambia el fondo al pasar el mouse */
+            color: white; /* Cambia el color del texto */
+            transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+        }
+
+        /* Estilo inicial del botón de Zapato Corp */
+        .footer-links a[href="indexcorp.html"] {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem; /* Ajusta el tamaño de la letra para que coincida */
+            font-weight: normal; /* Cambia el peso de la fuente si es necesario */
+            color: #2196f3; /* Azul del texto */
+            background-color: transparent; /* Fondo transparente */
+            border: 2px solid #2196f3; /* Contorno azul */
+            border-radius: 4px; /* Bordes ligeramente redondeados */
+            text-transform: uppercase;
+            text-decoration: none; /* Elimina el subrayado */
+            transition: all 0.3s ease; /* Transición suave */
+            text-align: center;
+            cursor: pointer;
+        }
+
+        /* Efecto hover */
+        .footer-links a[href="indexcorp.html"]:hover {
+            background-color: #2196f3; /* Fondo azul al pasar el mouse */
+            color: white; /* Texto blanco */
+        }
+
+        /* Efecto al hacer clic */
+        .footer-links a[href="indexcorp.html"]:active {
+            background-color: #1976d2; /* Fondo azul más oscuro al hacer clic */
+            color: white; /* Texto blanco */
+            transform: scale(0.95); /* Efecto de presión */
+        }
+
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Pantalla de carga */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--light);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #loading-screen .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--secondary);
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        #loading-screen .loading-text {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 70px 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            /* Ajusta el tamaño del logo */
+            .logo {
+                font-size: 1.2rem;
+                flex-direction: column; /* Apila los elementos verticalmente */
+                text-align: center;
+            }
+
+            .badhorse {
+                font-size: 1.8rem; /* Reduce el tamaño del texto "Zapato" */
+            }
+
+            .cafeteria {
+                font-size: 1rem; /* Reduce el tamaño del texto "Cafetería" */
+            }
+
+            /* Ajusta el menú de navegación */
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%; /* Oculta el menú fuera de la pantalla */
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 40px;
+                transition: right 0.5s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                right: 0; /* Muestra el menú al activarlo */
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            /* Botón de hamburguesa */
+            .hamburger {
+                display: block; /* Muestra el botón de hamburguesa */
+                cursor: pointer;
+            }
+
+            .hamburger div {
+                width: 25px;
+                height: 3px;
+                background-color: var(--primary);
+                margin: 5px;
+                transition: all 0.3s ease;
+            }
+
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .new-carousel-item {
+                flex: 0 0 100%; /* Cada ecoacción ocupa el 100% del ancho del carrusel */
+            }
+
+            .new-carousel {
+                gap: 10px; /* Reduce el espacio entre los elementos */
+            }
+
+            .new-carousel-item img {
+                height: 200px; /* Ajusta la altura de las imágenes */
+            }
+
+            .new-carousel-info {
+                padding: 15px; /* Reduce el padding para adaptarse a pantallas pequeñas */
+            }
+
+            .new-carousel-info h3 {
+                font-size: 1.2rem; /* Reduce el tamaño del título */
+            }
+
+            .new-carousel-info p {
+                font-size: 0.9rem; /* Reduce el tamaño del texto */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+            }
+
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cafeteria-roboto {
+            font-family: 'Roboto', sans-serif; /* Cambia la tipografía a Roboto */
+            font-size: 2rem; /* Ajusta el tamaño del texto */
+            font-weight: normal; /* Sin negrilla */
+            color: inherit; /* Mantiene el color original */
+            letter-spacing: 3px; /* Aumenta el espaciado entre letras */
+            text-transform: uppercase; /* Convierte el texto a mayúsculas */
+        }
+
+        .hero .badhorse {
+            color: white; /* Cambia el color del texto a blanco */
+        }
+
+        .eco-promotions {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .eco-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .eco-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .eco-info {
+            padding: 20px;
+        }
+
+        .eco-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .eco-info p {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .eco-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #dark-mode-toggle {
+            position: fixed;
+            bottom: 20px; /* Cambia la posición al fondo */
+            right: 20px; /* Alinea a la derecha */
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000; /* Asegura que esté por encima de otros elementos */
+        }
+
+        #dark-mode-toggle:hover {
+            background-color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        /* Estilo para el botón de solicitar vacante */
+        .btn-vacante {
+            display: inline-block;
+            margin-top: 20px; /* Desplaza el botón más abajo */
+            padding: 12px 30px; /* Tamaño del botón ajustado */
+            background: linear-gradient(45deg, #d4af37, #b8860b); /* Degradado dorado */
+            color: white;
+            font-size: 1rem; /* Tamaño del texto */
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 30px; /* Bordes redondeados */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-vacante:hover {
+            background: linear-gradient(45deg, #b8860b, #d4af37); /* Cambia el degradado al pasar el mouse */
+            transform: translateY(-3px); /* Efecto de elevación */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+        }
+    </style>
+</head>
+<body>
+<!-- Pantalla de carga -->
+    <div id="loading-screen">
+        <div class="spinner"></div>
+        <div class="loading-text"></div>
+    </div>    
+
+<!-- Header -->
+    <header id="header">
+        <div class="container">
+              <nav class="navbar">
+                <a href="#" class="logo">
+                    <span class="badhorse">Zapato</span>
+                    <span class="cafeteria">Cafetería</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#menu">Menú</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#galeria"><i class="fas fa-leaf"></i> Ecoacciones</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#mapa">Mapa</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>
+<span class="badhorse">Zapato</span>
+<span class="cafeteria-roboto">Cafetería</span>
+</h1>
+            <p>El café para los que dejan huella.</p>
+            <a href="#menu" class="btn">Explora nuestro menú</a>
+            <a href="formulario-vacantes.html" class="btn btn-vacante">Aplica para una Vacante</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="nosotros">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="badhorse">Nuestra Historia</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3 class="badhorse">Una huella con propósito</h3>
+                    <p>Zapato Cafetería nació con la idea de ser más que una cafetería: queríamos ser un espacio de encuentro, calidez y conciencia. Nuestro nombre representa el camino diario de cada persona, y también nuestro propio trayecto hacia un modelo de negocio más sustentable.</p>
+                    <p>Con el paso del tiempo, decidimos reducir nuestros residuos, elegir ingredientes locales y crear prácticas que respeten al medio ambiente. Porque para nosotros, cada decisión importa.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Interior de Zapato Cafetería">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="section menu" id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="badhorse">Nuestro Menú</h2>
+            </div>
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="cafes">Cafés</button>
+                <button class="category-btn" data-category="tes">Tés</button>
+                <button class="category-btn" data-category="galletas">Galletas</button>
+                <button class="category-btn" data-category="panaderia">Panadería</button>
+                <button class="category-btn" data-category="especiales">Especiales</button>
+            </div>
+            <div class="menu-items">
+            <!-- Cafés -->
+            <div class="menu-item" data-category="cafes">
+                <img src="recursos/imagenes/expreso.png" alt="Espresso">
+                <div class="item-info">
+                    <h3>Espresso Clásico</h3>
+                    <p>Un shot intenso de nuestro café de especialidad, cultivado en las tierras altas de Colombia.</p>
+                    <div class="item-price">$50.00 MXN</div>
+                </div>
+            </div>
+            <div class="menu-item" data-category="cafes">
+                <img src="recursos/imagenes/capuchino.jpg" alt="Cappuccino">
+                <div class="item-info">
+                    <h3>Cappuccino Artesanal</h3>
+                    <p>La perfecta combinación de espresso, leche vaporizada y una suave capa de espuma.</p>
+                    <div class="item-price">$75.00 MXN</div>
+                </div>
+            </div>
+            <div class="menu-item" data-category="cafes">
+                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Latte">
+                <div class="item-info">
+                    <h3>Latte de Vainilla</h3>
+                    <p>Espresso suave con leche vaporizada y un toque de vainilla natural.</p>
+                    <div class="item-price">$80.00 MXN</div>
+                </div>
+            </div>
+            <!-- Tés -->
+            <div class="menu-item" data-category="tes">
+                <img src="recursos/imagenes/matcha.jpg" alt="Té Verde">
+                <div class="item-info">
+                    <h3>Té Verde Matcha</h3>
+                    <p>Auténtico matcha japonés, rico en antioxidantes y preparado tradicionalmente.</p>
+                    <div class="item-price">$70.00 MXN</div>
+                </div>
+            </div>
+            <div class="menu-item" data-category="tes">
+                <img src="recursos/imagenes/te manza.webp" alt="Té de Manzanilla">
+                <div class="item-info">
+                    <h3>Té de Manzanilla</h3>
+                    <p>Flores de manzanilla orgánica, perfectas para relajarse en cualquier momento del día.</p>
+                    <div class="item-price">$55.00 MXN</div>
+                </div>
+            </div>
+            <div class="menu-item" data-category="tes">
+                <img src="recursos/imagenes/chai.jpg" alt="Té Chai">
+                <div class="item-info">
+                    <h3>Chai Latte</h3>
+                    <p>Mezcla especiada de té negro, cardamomo, canela, clavo y pimienta con leche vaporizada.</p>
+                    <div class="item-price">$75.00 MXN</div>
+                </div>
+            </div>
+            <!-- Galletas -->
+            <div class="menu-item" data-category="galletas">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Galletas de Chocolate">
+                <div class="item-info">
+                    <h3>Galletas de Chocolate</h3>
+                    <p>Clásicas galletas con trozos de chocolate negro, crujientes por fuera y suaves por dentro.</p>
+                    <div class="item-price">$50.00 MXN</div>
+                </div>
+            </div>
+            <div class="menu-item" data-category="galletas">
+                <img src="recursos/imagenes/galleta avena.JPG" alt="Galletas de Avena">
+                <div class="item-info">
+                    <h3>Galletas de Avena y Pasas</h3>
+                    <p>Hechas con avena integral, pasas rubias y un toque de canela.</p>
+                    <div class="item-price">$55.00 MXN</div>
+                </div>
+            </div>
+            <div class="menu-item" data-category="galletas">
+                <img src="recursos/imagenes/alfajores.jpg" alt="Alfajores">
+                <div class="item-info">
+                    <h3>Alfajores Artesanales</h3>
+                    <p>Delicadas galletas rellenas de dulce de leche y espolvoreadas con coco rallado.</p>
+                    <div class="item-price">$65.00 MXN</div>
+                </div>
+            </div>
+            <!-- Panadería -->
+            <div class="menu-item" data-category="panaderia">
+                <img src="recursos/imagenes/croissant.jpg" alt="Croissant">
+                <div class="item-info">
+                    <h3>Croissant Tradicional</h3>
+                    <p>Hojaldre dorado y crujiente, horneado a diario con mantequilla de primera calidad.</p>
+                    <div class="item-price">$45.00 MXN</div>
+                </div>
+            </div>
+            <div class="menu-item" data-category="panaderia">
+                <img src="recursos/imagenes/canela.jpg" alt="rol de Canela">
+                <div class="item-info">
+                    <h3>rol de Canela</h3>
+                    <p>Esponjoso pan dulce con un generoso relleno de canela y azúcar moreno.</p>
+                    <div class="item-price">$50.00 MXN</div>
+                </div>
+            </div>
+            <div class="menu-item" data-category="panaderia">
+                <img src="recursos/imagenes/maffin.png" alt="Muffin de Arándanos">
+                <div class="item-info">
+                    <h3>Muffin de Arándanos</h3>
+                    <p>Delicioso muffin repleto de arándanos frescos y un toque de limón.</p>
+                    <div class="item-price">$55.00 MXN</div>
+                </div>
+            </div>
+            <!-- Especiales -->
+            <div class="menu-item" data-category="especiales">
+                <img src="recursos/imagenes/chocolate.jpg" alt="pastel de Chocolate">
+                <div class="item-info">
+                    <h3>Pastel de Chocolate</h3>
+                    <p>Nuestra famosa pastel de chocolate negro con ganache y frambuesas frescas.</p>
+                    <div class="item-price">$95.00 MXN</div>
+                </div>
+            </div>
+            <div class="menu-item" data-category="especiales">
+                <img src="recursos/imagenes/cheses.jpg" alt="Cheesecake">
+                <div class="item-info">
+                    <h3>Cheesecake de Frutos Rojos</h3>
+                    <p>Suave cheesecake con base de galleta y cubierto con coulis de frutos rojos.</p>
+                    <div class="item-price">$100.00 MXN</div>
+                </div>
+            </div>
+            <div class="menu-item" data-category="especiales">
+                <img src="recursos/imagenes/tarta.jpg" alt="Tarta de Manzana">
+                <div class="item-info">
+                    <h3>Tarta de Manzana</h3>
+                    <p>Clásica tarta de manzana con canela y un crujiente topping de streusel.</p>
+                    <div class="item-price">$85.00 MXN</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Gallery Section -->
+<section class="section" id="galeria">
+    <div class="container">
+        <div class="section-title">
+            <h2 class="badhorse">Cuidemos el Medio Ambiente</h2>
+        </div>
+        <div class="new-carousel-wrapper">
+            <button class="new-carousel-btn prev-btn">&lt;</button>
+            <div class="new-carousel">
+                <!-- Elementos del carrusel -->
+                <div class="new-carousel-item">
+                    <img src="recursos/imagenes/ta.png" alt="Trae tu termo">
+                    <div class="new-carousel-info">
+                        <h2 class="badhorse">Trae tu Termo</h2>
+                        <p>Recibe un descuento al traer tu termo.</p>
+                    </div>
+                </div>
+                <div class="new-carousel-item">
+                    <img src="recursos/imagenes/comp.png" alt="Café por compost">
+                    <div class="new-carousel-info">
+                        <h2 class="badhorse">Café por Compost</h2>
+                        <p>Trae residuos orgánicos y recibe incentivos.</p>
+                    </div>
+                </div>
+                <div class="new-carousel-item">
+                    <img src="recursos/imagenes/inter.png" alt="Eco-estación de intercambio">
+                    <div class="new-carousel-info">
+                        <h2 class="badhorse">Eco-estación de Intercambio</h2>                       
+                        <p>Intercambia tus cosas y </p>
+                        <p>dales una segunda vida.</p>
+                    </div>
+                </div>
+                <div class="new-carousel-item">
+                    <img src="recursos/imagenes/planta.png" alt="Tu planta, tu café">
+                    <div class="new-carousel-info">
+                        <h2 class="badhorse">Tu Planta, Tu Café</h2>
+                        <p>Trae una planta y </p>
+                        <p>recibe un café.</p>
+                    </div>
+                </div>
+                <div class="new-carousel-item">
+                    <img src="recursos/imagenes/charla.png" alt="Talleres sobre vida sostenible">
+                    <div class="new-carousel-info">
+                        <h2 class="badhorse">Talleres mensuales </h2>
+                        <p>Participa en charlas mensuales </p>
+                        <p>sobre sostenibilidad.</p>
+                    </div>
+                </div>
+                <div class="new-carousel-item">
+                    <img src="recursos/imagenes/muro.png" alt="Planta en adopción">
+                    <div class="new-carousel-info">
+                        <h2 class="badhorse">Planta en Adopción</h2>
+                        <p>Intercambia plantas y </p>
+                        <p>contribuye al muro.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="new-carousel-btn next-btn">&gt;</button>
+        </div>
+    </div>
+</section>
+    <!-- Contact Section -->
+    <section class="section contact" id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="badhorse">Visítanos</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 class="badhorse">Información de Contacto</h3>
+                    <ul>
+                        <li>
+                            <h4 class="badhorse">Dirección</h4>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Calle del Aroma, 123<br>Colonia Sabores<br>Ciudad del Café</span>
+                        </li>
+                        <li>
+                            <h4 class="badhorse">Horario</h4>
+                            <i class="fas fa-clock"></i>
+                            <span>Lunes a Viernes: 7:00 - 20:00<br>Sábado y Domingo: 8:00 - 22:00</span>
+                        </li>
+                        <li>
+                            <h4 class="badhorse">Teléfono</h4>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+52 55 4929 6378</span>
+                        </li>
+                        <li>
+                            <h4 class="badhorse">Email</h4>
+                            <i class="fas fa-envelope"></i>
+                            <span>contacto@zapatocafeteria.com</span>
+                        </li>
+                    </ul>
+                    <div class="social-links">
+                        <h4 class="badhorse">Síguenos en redes sociales</h4>
+                        <div class="icons">
+                            <a href="https://wa.me/525549296378" target="_blank" rel="noopener" title="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" title="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" title="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3 class="badhorse">Envíanos un mensaje</h3>
+                    <form id="form-contacto">
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" name="name" placeholder="Escribe tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Título</label>
+                            <input type="text" id="title" name="title" placeholder="Escribe el título" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Escribe tu email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" placeholder="Escribe tu mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section" id="mapa">
+        <div class="container">
+            <div class="section-title"></div>
+                <h2 class="badhorse">Encuéntranos</h2>
+            </div>
+            <div class="map">
+                <iframe data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.888244552543!2d-99.1654846845336!3d19.4260207457213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff2b3f509719%3A0x6d5f394a7c1b114a!2sPalacio%20de%20Bellas%20Artes!5e0!3m2!1ses-419!2smx!4v1622673084989!5m2!1ses-419!2smx" allowfullscreen="" title="Mapa de ubicación de Zapato Cafetería"></iframe>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const iframe = document.querySelector('iframe[data-src]');
+                        if (iframe) {
+                            iframe.src = iframe.getAttribute('data-src');
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3 class="badhorse">Zapato Cafetería</h3>
+                    <p>Donde cada taza cuenta una historia y cada bocado es un capítulo delicioso.</p>
+                </div>
+                <div class="footer-col">
+                    <h3 class="badhorse">Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#menu">Menú</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#galeria">Ecoacciones</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+<li><a href="#mapa">Mapa</a></li>
+                        <li><a href="indexcorp.html" target="_blank">Zapato Corp</a></li> <!-- Nuevo enlace -->
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="badhorse">Horario</h3>
+                    <p>Lunes a Viernes: 7:00 - 20:00</p>
+                    <p>Sábado y Domingo: 8:00 - 22:00</p>
+                </div>
+                <div class="footer-col">
+                    <h3 class="badhorse">Newsletter</h3>
+                    <p>Suscríbete para recibir nuestras promociones y eventos especiales.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Tu email" required>
+                        <button type="submit" class="btn">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Zapato Corp. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+    (function() {
+        emailjs.init("3x0eoG6IPXvxlQS8c"); // Reemplaza con tu clave pública de EmailJS
+    })();
+
+    const contactForm = document.getElementById('form-contacto');
+
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Muestra un mensaje de carga mientras se envía el correo
+        alert('Enviando mensaje...');
+
+        // Envía el formulario usando EmailJS
+        emailjs.sendForm('service_k8ac3im', 'template_n8gsb9u', this)
+            .then(function() {
+                alert('Mensaje enviado con éxito. Nos pondremos en contacto contigo pronto.');
+                contactForm.reset(); // Limpia el formulario
+            }, function(error) {
+                alert('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
+                console.error('Error:', error);
+            });
+    });
+
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const links = document.querySelectorAll('.nav-links li');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Sticky Header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Menu Filter
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                categoryBtns.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const category = btn.getAttribute('data-category');
+                
+                menuItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Scroll Animations
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.about-text, .about-image, .menu-item, .gallery-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animate');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        // Form Submission
+        const contactFormLegacy = document.getElementById('form-contacto');
+        
+        contactFormLegacy.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to a server
+            // For this example, we'll just show an alert
+            alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
+            
+            // Reset the form
+            contactFormLegacy.reset();
+        });
+
+        // Newsletter Form
+        const newsletterForm = document.querySelector('.newsletter-form');
+        
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const emailInput = this.querySelector('input[type="email"]');
+            alert(`Gracias por suscribirte con el email: ${emailInput.value}`);
+            
+            emailInput.value = '';
+        });
+
+        // Carousel Functionality
+        const newCarousel = document.querySelector('.new-carousel');
+        const newItems = Array.from(document.querySelectorAll('.new-carousel-item'));
+        const newPrevBtn = document.querySelector('.new-carousel-btn.prev-btn');
+        const newNextBtn = document.querySelector('.new-carousel-btn.next-btn');
+
+        let newCurrentIndex = 1; // Comienza en el primer elemento real
+        const newVisibleItems = 1; // Muestra 1 elemento a la vez
+
+        // Clona los primeros y últimos elementos para crear un efecto infinito
+        const newFirstClone = newItems[0].cloneNode(true);
+        const newLastClone = newItems[newItems.length - 1].cloneNode(true);
+
+        newCarousel.appendChild(newFirstClone); // Agrega el primer clon al final
+        newCarousel.insertBefore(newLastClone, newItems[0]); // Agrega el último clon al inicio
+
+        // Actualiza la lista de elementos con los clones incluidos
+        const newUpdatedItems = Array.from(newCarousel.children);
+
+        // Ajusta el ancho de cada elemento del carrusel
+        const setNewItemWidths = () => {
+            const itemWidth = newCarousel.offsetWidth; // El ancho de cada elemento es igual al ancho del carrusel
+            newUpdatedItems.forEach(item => {
+                item.style.flex = `0 0 ${itemWidth}px`; // Ajusta el ancho de cada elemento
+            });
+            updateNewCarousel(); // Asegúrate de que el carrusel esté en la posición correcta después de ajustar los anchos
+        };
+
+        // Actualiza la posición del carrusel
+        const updateNewCarousel = () => {
+            const itemWidth = newCarousel.offsetWidth; // El ancho de cada elemento es igual al ancho del carrusel
+            const offset = newCurrentIndex * -itemWidth; // Calcula el desplazamiento
+            newCarousel.style.transform = `translateX(${offset}px)`;
+
+            // Si llegamos al final, volvemos al primer elemento real sin transición
+            if (newCurrentIndex === newUpdatedItems.length - 1) {
+                setTimeout(() => {
+                    newCarousel.style.transition = 'none';
+                    newCurrentIndex = 1;
+                    const offset = newCurrentIndex * -itemWidth;
+                    newCarousel.style.transform = `translateX(${offset}px)`;
+                }, 500);
+            }
+
+            // Si llegamos al inicio, volvemos al último elemento real sin transición
+            if (newCurrentIndex === 0) {
+                setTimeout(() => {
+                    newCarousel.style.transition = 'none';
+                    newCurrentIndex = newUpdatedItems.length - 2;
+                    const offset = newCurrentIndex * -itemWidth;
+                    newCarousel.style.transform = `translateX(${offset}px)`;
+                }, 500);
+            }
+        };
+
+        // Desplaza el carrusel en la dirección indicada
+        const scrollNewCarousel = (direction) => {
+            newCarousel.style.transition = 'transform 0.5s ease';
+            if (direction === 'next') {
+                newCurrentIndex++;
+            } else {
+                newCurrentIndex--;
+            }
+            updateNewCarousel();
+        };
+
+        // Configura los botones de navegación
+        newPrevBtn.addEventListener('click', () => scrollNewCarousel('prev'));
+        newNextBtn.addEventListener('click', () => scrollNewCarousel('next'));
+
+        // Desplazamiento automático
+        setInterval(() => {
+            scrollNewCarousel('next');
+        }, 10000); // Cambia cada 10 segundos
+
+        // Ajusta el carrusel al cambiar el tamaño de la ventana
+        window.addEventListener('resize', () => {
+            newCarousel.style.transition = 'none';
+            setNewItemWidths();
+        });
+
+        // Inicializa el carrusel
+        setNewItemWidths();
+        updateNewCarousel();
+
+    // Frases para la pantalla de carga
+    const frases = [
+        "Calentando la cafetera... y la inspiración.",
+        "Cargando aroma a café recién hecho...",
+        "Tu taza está casi lista...",
+        "Desempolvando los zapatos... y el espresso.",
+        "Un momento... el café perfecto toma su tiempo.",
+        "Moliendo ideas con cada grano.",
+        "Poniendo la leche a punto...",
+        "¡Ya viene el sorbo de creatividad!",
+        "Preparando tu experiencia sensorial...",
+        "Zapatitos listos, café en camino...",
+        "Amarrando los cordones... y los sabores de tu café.",
+        "Puliendo los granos... y tus momentos favoritos.",
+        "Café en un pie... ¡y tu energía al otro!",
+        "Desatando aromas... y tu mejor día.",
+        "Zapatos cómodos, café irresistible... combinación perfecta.",
+        "Precalentando la taza... y tu buen humor.",
+        "Un zapato para caminar, un café para volar.",
+        "Latte en mano, sueños en pie.",
+        "Cargando... paciencia y un toque de canela.",
+        "El espresso está listo... ¿y tus ganas de disfrutarlo?"
+    ];
+
+    // Selecciona una frase aleatoria
+    const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+    document.querySelector('.loading-text').textContent = fraseAleatoria;
+
+    // Oculta la pantalla de carga después de 3 segundos
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            const loadingScreen = document.getElementById('loading-screen');
+            loadingScreen.style.opacity = '0';
+            loadingScreen.style.visibility = 'hidden';
+        }, 3000);
+    });
+
+    const toggleDarkMode = document.createElement('button');
+    toggleDarkMode.textContent = '🌙';
+    toggleDarkMode.style.position = 'fixed';
+    toggleDarkMode.style.top = '20px';
+    toggleDarkMode.style.right = '20px';
+    toggleDarkMode.style.background = 'none';
+    toggleDarkMode.style.border = 'none';
+    toggleDarkMode.style.fontSize = '1.5rem';
+    toggleDarkMode.style.cursor = 'pointer';
+
+    document.body.appendChild(toggleDarkMode);
+
+    toggleDarkMode.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
+
+    const fadeInElements = document.querySelectorAll('.fade-in');
+
+    const handleScroll = () => {
+        fadeInElements.forEach(element => {
+            const rect = element.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                element.classList.add('visible');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('load', handleScroll);
+
+    // Crear el botón para el modo oscuro
+    const toggleDarkModeButton = document.createElement('button');
+    toggleDarkModeButton.id = 'dark-mode-toggle';
+    toggleDarkModeButton.textContent = '🌙'; // Icono inicial
+    document.body.appendChild(toggleDarkModeButton);
+
+    // Alternar el modo oscuro
+    toggleDarkModeButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        toggleDarkModeButton.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙'; // Cambiar icono
+    });
+</script>
+</body>
+</html>
